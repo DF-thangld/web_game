@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80605D3E-7DA8-43CA-8761-8DFBA843F654}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>beans</RootNamespace>
+    <AssemblyName>beans</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\document\linq\linq 1.0\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\document\linq\linq 1.0\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\document\linq\linq 1.0\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\document\linq\linq 1.0\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\document\linq\linq 1.0\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.Velocity, Version=2.1.0.4000, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\document\linq\linq 1.0\NH cache\NHibernate.Caches.Velocity\NHibernate.Caches.Velocity.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\document\linq\linq 1.0\NHibernate.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="uNhAddIns, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\document\uNHAddIns\uNhAddIns.dll</HintPath>
+    </Reference>
+    <Reference Include="uNhAddIns.ActiveRecord, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\document\uNHAddIns\uNhAddIns.ActiveRecord.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administrator.Methods.Authentication.cs" />
+    <Compile Include="Attack.cs" />
+    <Compile Include="AttackReport.cs" />
+    <Compile Include="Build.cs" />
+    <Compile Include="BuildingType.cs" />
+    <Compile Include="CommonFunctions.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Admin.cs" />
+    <Compile Include="AdminConfigurationMethods.cs" />
+    <Compile Include="Hero.cs" />
+    <Compile Include="HeroType.cs" />
+    <Compile Include="ISystemLogger.cs" />
+    <Compile Include="JobEnum.cs" />
+    <Compile Include="Permission.cs" />
+    <Compile Include="RecruitHero.cs" />
+    <Compile Include="SecurityException.cs" />
+    <Compile Include="ServicesList.cs" />
+    <Compile Include="Services\ConfigurationService.cs" />
+    <Compile Include="Services\LogService.cs" />
+    <Compile Include="Services\SecurityService.cs" />
+    <Compile Include="Services\StaffManagementService.cs" />
+    <Compile Include="StaffGroup.cs" />
+    <Compile Include="Job.cs" />
+    <Compile Include="SupportSendbackReport.cs" />
+    <Compile Include="InviteReport.cs" />
+    <Compile Include="MovingCommandLandingTimeComparer.cs" />
+    <Compile Include="NumericConfiguration.cs" />
+    <Compile Include="Player.Methods.Tribe.cs" />
+    <Compile Include="Research.cs" />
+    <Compile Include="ResearchableStatus.cs" />
+    <Compile Include="ResearchPrice.cs" />
+    <Compile Include="ResearchType.cs" />
+    <Compile Include="SendResourceReport.cs" />
+    <Compile Include="StringConfiguration.cs" />
+    <Compile Include="TribalWarsEngine.cs" />
+    <Compile Include="TribalWarsException.cs" />
+    <Compile Include="UserType.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="VillageHeroMethods.cs" />
+    <Compile Include="VillageResourceMethods.cs" />
+    <Compile Include="VillageTransportMethods.cs" />
+    <Compile Include="VillageRecruitMethods.cs" />
+    <Compile Include="DatetimeHelper.cs" />
+    <Compile Include="DefenseOtherReport.cs" />
+    <Compile Include="DefenseReport.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="InviteToTribeReport.cs" />
+    <Compile Include="Mail.cs" />
+    <Compile Include="VillageBuildingMethods.cs" />
+    <Compile Include="VillageCommonMethods.cs" />
+    <Compile Include="VillageResearchMethods.cs" />
+    <Compile Include="VillageTroopMethods.cs" />
+    <Compile Include="WriteMail.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="MovingCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OfferAcceptedReport.cs" />
+    <Compile Include="Report.cs" />
+    <Compile Include="ResourceReceiveReport.cs" />
+    <Compile Include="Return.cs" />
+    <Compile Include="SendResource.cs" />
+    <Compile Include="ShoutboxData.cs" />
+    <Compile Include="Support.cs" />
+    <Compile Include="IdentityObject.cs" />
+    <Compile Include="IVillageEffector.cs" />
+    <Compile Include="ReportType.cs" />
+    <Compile Include="Station.cs" />
+    <Compile Include="Group.cs" />
+    <Compile Include="MoveType.cs" />
+    <Compile Include="Offer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recruit.cs" />
+    <Compile Include="ResourcesType.cs" />
+    <Compile Include="Sex.cs" />
+    <Compile Include="SupportReport.cs" />
+    <Compile Include="SupportWithdawalReport.cs" />
+    <Compile Include="Text.cs" />
+    <Compile Include="TimeComparer.cs" />
+    <Compile Include="TribeDiplomate.cs" />
+    <Compile Include="TribeInvite.cs" />
+    <Compile Include="TribePermission.cs" />
+    <Compile Include="TribeRelation.cs" />
+    <Compile Include="TroopType.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Village.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VillageBuildingData.cs" />
+    <Compile Include="VillageMarketMethods.cs" />
+    <Compile Include="VillageReseachData.cs" />
+    <Compile Include="VillageResourcesData.cs" />
+    <Compile Include="VillageTroopData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagrams\Chuyển tài nguyên.cd" />
+    <None Include="ClassDiagrams\Xoá bang hội.cd" />
+    <None Include="ClassDiagrams\Quản lý ngoại giao.cd" />
+    <None Include="ClassDiagrams\Thay đổi quyền hạn thành viên.cd" />
+    <None Include="ClassDiagrams\Mời gia nhập bang hội.cd" />
+    <None Include="ClassDiagrams\Thay đổi thông tin bang hội.cd" />
+    <None Include="ClassDiagrams\Lập bang hội.cd" />
+    <None Include="ClassDiagrams\Mua tài nguyên.cd" />
+    <None Include="ClassDiagrams\Huỷ lệnh rao bán tài nguyên.cd" />
+    <None Include="ClassDiagrams\Rao bán tài nguyên.cd" />
+    <None Include="ClassDiagrams\Huỷ lệnh chuyển tài nguyên.cd" />
+    <None Include="ClassDiagrams\Huỷ lệnh.cd" />
+    <None Include="ClassDiagrams\Liệt kê danh sách lệnh.cd" />
+    <None Include="ClassDiagrams\Rút quân.cd" />
+    <None Include="ClassDiagrams\Cập nhật danh sách tuyển quân.cd" />
+    <None Include="ClassDiagrams\Huỷ xây dựng công trình.cd" />
+    <None Include="ClassDiagrams\Hỗ trợ.cd" />
+    <None Include="ClassDiagrams\Liệt kê danh sách tuyển quân.cd" />
+    <None Include="ClassDiagrams\Liệt kê danh sách xây dựng.cd" />
+    <None Include="ClassDiagrams\Shoutbox.cd" />
+    <None Include="ClassDiagrams\Thay đổi thông tin tài khoản.cd" />
+    <None Include="ClassDiagrams\Tuyển quân.cd" />
+    <None Include="ClassDiagrams\TW.cd" />
+    <None Include="ClassDiagrams\Tấn công.cd" />
+    <None Include="ClassDiagrams\Xem khả năng tuyển quân.cd" />
+    <None Include="ClassDiagrams\Xem khả năng xây dựng công trình.cd" />
+    <None Include="ClassDiagrams\Xây dựng công trình.cd" />
+    <None Include="ClassDiagrams\Đăng nhập.cd" />
+    <None Include="MappingFiles\nhibernate-configuration.xsd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="MappingFiles\nhibernate-mapping.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Player.hbm.xml">
+      <Generator>nhibernate-mapping.xsd</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MappingFiles\Village.hbm.xml">
+      <Generator>nhibernate-mapping.xsd</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Build.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\Group.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\Offer.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\Recruit.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\Station.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Configuration.hbm.xml">
+      <Generator>nhibernate-mapping.xsd</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\MovingCommand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Report.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\ShoutboxData.hbm.xml">
+      <Generator>nhibernate-mapping.xsd</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\TribeInvite.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\filters.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\typedef.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Test.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Text.hbm.xml">
+      <Generator>nhibernate-mapping.xsd</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Mail.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\WriteMail.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\Research.hbm.xml">
+      <Generator>nhibernate-mapping.xsd</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MappingFiles\Job.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\Permission.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\StaffGroup.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\Hero.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\RecruitHero.hbm.xml" />
+    <Content Include="Templates\AttackReport.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\ResourceReceiveReport.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\InviteReport.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="TextRenderer\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

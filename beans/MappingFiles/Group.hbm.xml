@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  
+  <class name="beans.Group, beans" table="groups" lazy="true">
+    <cache usage="read-write"/>
+    <id name="ID" column="id" type="Int32">
+      <generator class="hilo">
+        <param name="table">hi_value</param>
+        <param name="column">next_value</param>
+        <param name="where">id='group'</param>
+      </generator>
+    </id>
+
+    <property name="Name" column="name" length="200" type="String" not-null="true"/>
+    <property name="Tag" column="tag" type="string" length="10" not-null="true" unique="true" />
+    <property name="Description" column="description" type="string" length="10000" not-null="false" lazy="true" />
+    <property name="Introduction" column="introduction" type="string" length="10000" not-null="false" lazy="true" />
+    <property name="Avatar" column="avatar" type="Boolean" not-null="false" />
+
+  </class>
+
+  <class name="beans.TribeRelation, beans" table="diplomates" lazy="true">
+    <cache usage="read-write"/>
+    <id name="ID" column="id" type="Int32">
+      <generator class="identity"/>
+    </id>
+
+    <many-to-one name="CurrentTribe" class="beans.Group, beans" column="group_1" not-null="false" fetch="select" cascade="none" />
+    <many-to-one name="DiplomaticTribe" class="beans.Group, beans" column="group_2" not-null="false" fetch="select" cascade="none" />
+    <property name="Diplomacy" column="type" type="beans.TribeDiplomate, beans" not-null="false" />
+  </class>
+
+</hibernate-mapping>

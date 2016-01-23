@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+
+  <class name="beans.Report, beans" table="reports" lazy="true" discriminator-value="0">
+    <cache usage="read-write"/>
+    <id name="ID" column="id" type="Int32" unsaved-value="-1">
+      <generator class="hilo">
+        <param name="table">hi_value</param>
+        <param name="column">next_value</param>
+        <param name="where">id='report'</param>
+      </generator>
+    </id>
+    <discriminator column="type" type="Int32" />
+
+    <many-to-one name="Owner" class="beans.Player, beans" column="owner" not-null="true" cascade="none" fetch="select" />
+    <property name="Time" column="create_time" type="timestamp"/>
+    <property name="Title" column="title" type="String" />
+    <property name="Unread" column="unread" type="Boolean" />
+
+    <subclass discriminator-value="1" name="beans.AttackReport, beans" lazy="true">
+      <property name="SpearSent" column="spear_attack" type="Int32" />
+      <property name="SwordSent" column="sword_attack" type="Int32" />
+      <property name="AxeSent" column="axe_attack" type="Int32" />
+      <property name="ScoutSent" column="scout_attack" type="Int32" />
+      <property name="LightCavalrySent" column="light_cavalry_attack" type="Int32" />
+      <property name="HeavyCavalrySent" column="heavy_cavalry_attack" type="Int32" />
+      <property name="CatapultSent" column="catapult_attack" type="Int32" />
+      <property name="RamSent" column="ram_attack" type="Int32" />
+      <property name="NobleSent" column="noble_attack" type="Int32" />
+
+      <property name="SpearAttackDead" column="spear_attack_dead" type="Int32" />
+      <property name="SwordAttackDead" column="sword_attack_dead" type="Int32" />
+      <property name="AxeAttackDead" column="axe_attack_dead" type="Int32" />
+      <property name="ScoutAttackDead" column="scout_attack_dead" type="Int32" />
+      <property name="LightCavalryAttackDead" column="light_cavalry_attack_dead" type="Int32" />
+      <property name="HeavyCavalryAttackDead" column="heavy_cavalry_attack_dead" type="Int32" />
+      <property name="CatapultAttackDead" column="catapult_attack_dead" type="Int32" />
+      <property name="RamAttackDead" column="ram_attack_dead" type="Int32" />
+      <property name="NobleAttackDead" column="noble_attack_dead" type="Int32" />
+
+      <property name="SpearDefense" column="spear_defense" type="Int32" />
+      <property name="SwordDefense" column="sword_defense" type="Int32" />
+      <property name="AxeDefense" column="axe_defense" type="Int32" />
+      <property name="ScoutDefense" column="scout_defense" type="Int32" />
+      <property name="LightCavalryDefense" column="light_cavalry_defense" type="Int32" />
+      <property name="HeavyCavalryDefense" column="heavy_cavalry_defense" type="Int32" />
+      <property name="CatapultDefense" column="catapult_defense" type="Int32" />
+      <property name="RamDefense" column="ram_defense" type="Int32" />
+      <property name="NobleDefense" column="noble_defense" type="Int32" />
+
+      <property name="SpearDefenseDead" column="spear_defense_dead" type="Int32" />
+      <property name="SwordDefenseDead" column="sword_defense_dead" type="Int32" />
+      <property name="AxeDefenseDead" column="axe_defense_dead" type="Int32" />
+      <property name="ScoutDefenseDead" column="scout_defense_dead" type="Int32" />
+      <property name="LightCavalryDefenseDead" column="light_cavalry_defense_dead" type="Int32" />
+      <property name="HeavyCavalryDefenseDead" column="heavy_cavalry_defense_dead" type="Int32" />
+      <property name="CatapultDefenseDead" column="catapult_defense_dead" type="Int32" />
+      <property name="RamDefenseDead" column="ram_defense_dead" type="Int32" />
+      <property name="NobleDefenseDead" column="noble_defense_dead" type="Int32" />
+
+      <property name="Iron" column="iron" type="Int32" />
+      <property name="Clay" column="clay" type="Int32" />
+      <property name="Wood" column="wood" type="Int32" />
+      <property name="IronInVillage" column="iron_in_village" type="Int32" />
+      <property name="ClayInVillage" column="clay_in_village" type="Int32" />
+      <property name="WoodInVillage" column="wood_in_village" type="Int32" />
+      <property name="LoyalBefore" column="loyal_before" type="Int32" />
+      <property name="WallBefore" column="wall_before" type="Int32" />
+      <property name="BuildingBefore" column="building_before" type="Int32" />
+      <property name="LoyalAfter" column="loyal_after" type="Int32" />
+      <property name="WallAfter" column="wall_after" type="Int32" />
+      <property name="BuildingAfter" column="building_after" type="Int32" />
+      <property name="ShowTroop" column="show_troop" type="Boolean" />
+      <property name="ShowBuilding" column="show_building" type="Boolean" />
+
+      <property name="SuccessAttack" column="attack_success" type="Boolean" />
+      <property name="Luck" column="luck_attack_side" type="Double" />
+      <property name="Morale" column="morale" type="Double" />
+
+      <many-to-one name="AttackingHero" class="beans.Hero, beans" column="attacking_hero" not-null="false" lazy="no-proxy" fetch="join" />
+      <many-to-one name="DefendingHero" class="beans.Hero, beans" column="defending_hero" not-null="false" lazy="no-proxy" fetch="join" />
+
+      <many-to-one name="FromVillage" class="beans.Village, beans" column="from_village" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToVillage" class="beans.Village, beans" column="to_village" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="FromPlayer" class="beans.Player, beans" column="from_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToPlayer" class="beans.Player, beans" column="to_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <property name="Building" column="building" type="beans.BuildingType, beans" />
+
+      <property name="Headquarter" column="headquarter" type="Int32" />
+      <property name="Barracks" column="barracks" type="Int32" />
+      <property name="Stable" column="stable" type="Int32" />
+      <property name="Workshop" column="workshop" type="Int32" />
+      <property name="Academy" column="academy" type="Int32" />
+      <property name="Smithy" column="smithy" type="Int32" />
+      <property name="Rally" column="rally" type="Int32" />
+      <property name="Market" column="market" type="Int32" />
+      <property name="ClayPit" column="claypit" type="Int32" />
+      <property name="IronMine" column="ironmine" type="Int32" />
+      <property name="TimberCamp" column="timbercamp" type="Int32" />
+      <property name="Warehouse" column="storage" type="Int32" />
+      <property name="Farm" column="farm" type="Int32" />
+      <property name="HidingPlace" column="hide" type="Int32" />
+      <property name="Wall" column="wall" type="Int32" />
+
+    </subclass>
+
+    <subclass discriminator-value="2" name="beans.DefenseReport, beans" lazy="true">
+      <property name="SpearSent" column="spear_attack" type="Int32" />
+      <property name="SwordSent" column="sword_attack" type="Int32" />
+      <property name="AxeSent" column="axe_attack" type="Int32" />
+      <property name="ScoutSent" column="scout_attack" type="Int32" />
+      <property name="LightCavalrySent" column="light_cavalry_attack" type="Int32" />
+      <property name="HeavyCavalrySent" column="heavy_cavalry_attack" type="Int32" />
+      <property name="CatapultSent" column="catapult_attack" type="Int32" />
+      <property name="RamSent" column="ram_attack" type="Int32" />
+      <property name="NobleSent" column="noble_attack" type="Int32" />
+
+      <property name="SpearAttackDead" column="spear_attack_dead" type="Int32" />
+      <property name="SwordAttackDead" column="sword_attack_dead" type="Int32" />
+      <property name="AxeAttackDead" column="axe_attack_dead" type="Int32" />
+      <property name="ScoutAttackDead" column="scout_attack_dead" type="Int32" />
+      <property name="LightCavalryAttackDead" column="light_cavalry_attack_dead" type="Int32" />
+      <property name="HeavyCavalryAttackDead" column="heavy_cavalry_attack_dead" type="Int32" />
+      <property name="CatapultAttackDead" column="catapult_attack_dead" type="Int32" />
+      <property name="RamAttackDead" column="ram_attack_dead" type="Int32" />
+      <property name="NobleAttackDead" column="noble_attack_dead" type="Int32" />
+
+      <property name="SpearDefense" column="spear_defense" type="Int32" />
+      <property name="SwordDefense" column="sword_defense" type="Int32" />
+      <property name="AxeDefense" column="axe_defense" type="Int32" />
+      <property name="ScoutDefense" column="scout_defense" type="Int32" />
+      <property name="LightCavalryDefense" column="light_cavalry_defense" type="Int32" />
+      <property name="HeavyCavalryDefense" column="heavy_cavalry_defense" type="Int32" />
+      <property name="CatapultDefense" column="catapult_defense" type="Int32" />
+      <property name="RamDefense" column="ram_defense" type="Int32" />
+      <property name="NobleDefense" column="noble_defense" type="Int32" />
+
+      <property name="SpearDefenseDead" column="spear_defense_dead" type="Int32" />
+      <property name="SwordDefenseDead" column="sword_defense_dead" type="Int32" />
+      <property name="AxeDefenseDead" column="axe_defense_dead" type="Int32" />
+      <property name="ScoutDefenseDead" column="scout_defense_dead" type="Int32" />
+      <property name="LightCavalryDefenseDead" column="light_cavalry_defense_dead" type="Int32" />
+      <property name="HeavyCavalryDefenseDead" column="heavy_cavalry_defense_dead" type="Int32" />
+      <property name="CatapultDefenseDead" column="catapult_defense_dead" type="Int32" />
+      <property name="RamDefenseDead" column="ram_defense_dead" type="Int32" />
+      <property name="NobleDefenseDead" column="noble_defense_dead" type="Int32" />
+
+      <property name="Iron" column="iron" type="Int32" />
+      <property name="Clay" column="clay" type="Int32" />
+      <property name="Wood" column="wood" type="Int32" />
+      <property name="LoyalBefore" column="loyal_before" type="Int32" />
+      <property name="WallBefore" column="wall_before" type="Int32" />
+      <property name="BuildingBefore" column="building_before" type="Int32" />
+      <property name="LoyalAfter" column="loyal_after" type="Int32" />
+      <property name="WallAfter" column="wall_after" type="Int32" />
+      <property name="BuildingAfter" column="building_after" type="Int32" />
+
+      <property name="SuccessAttack" column="attack_success" type="Boolean" />
+      <property name="Luck" column="luck_attack_side" type="Double" />
+      <property name="Morale" column="morale" type="Double" />
+
+      <many-to-one name="FromVillage" class="beans.Village, beans" column="from_village" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToVillage" class="beans.Village, beans" column="to_village" not-null="true" lazy="no-proxy"  fetch="select" />
+      <many-to-one name="FromPlayer" class="beans.Player, beans" column="from_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToPlayer" class="beans.Player, beans" column="to_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <property name="Building" column="building" type="beans.BuildingType, beans" />
+
+    </subclass>
+
+    <subclass discriminator-value="3" name="beans.DefenseOtherReport, beans" lazy="true">
+      <property name="SpearDefense" column="spear_defense" type="Int32" />
+      <property name="SwordDefense" column="sword_defense" type="Int32" />
+      <property name="AxeDefense" column="axe_defense" type="Int32" />
+      <property name="ScoutDefense" column="scout_defense" type="Int32" />
+      <property name="LightCavalryDefense" column="light_cavalry_defense" type="Int32" />
+      <property name="HeavyCavalryDefense" column="heavy_cavalry_defense" type="Int32" />
+      <property name="CatapultDefense" column="catapult_defense" type="Int32" />
+      <property name="RamDefense" column="ram_defense" type="Int32" />
+      <property name="NobleDefense" column="noble_defense" type="Int32" />
+
+      <property name="SpearDead" column="spear_defense_dead" type="Int32" />
+      <property name="SwordDead" column="sword_defense_dead" type="Int32" />
+      <property name="AxeDead" column="axe_defense_dead" type="Int32" />
+      <property name="ScoutDead" column="scout_defense_dead" type="Int32" />
+      <property name="LightCavalryDead" column="light_cavalry_defense_dead" type="Int32" />
+      <property name="HeavyCavalryDead" column="heavy_cavalry_defense_dead" type="Int32" />
+      <property name="CatapultDead" column="catapult_defense_dead" type="Int32" />
+      <property name="RamDead" column="ram_defense_dead" type="Int32" />
+      <property name="NobleDead" column="noble_defense_dead" type="Int32" />
+
+      <many-to-one name="FromVillage" class="beans.Village, beans" column="from_village" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToVillage" class="beans.Village, beans" column="to_village" not-null="true" lazy="no-proxy" fetch="select"  />
+      <many-to-one name="FromPlayer" class="beans.Player, beans" column="from_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToPlayer" class="beans.Player, beans" column="to_player" not-null="true" lazy="no-proxy" fetch="select" />
+
+    </subclass>
+    
+    <subclass discriminator-value="4" name="beans.SendResourceReport, beans" lazy="true">
+      <property name="Iron" column="iron" type="Int32" />
+      <property name="Clay" column="clay" type="Int32" />
+      <property name="Wood" column="wood" type="Int32" />
+      <many-to-one name="FromVillage" class="beans.Village, beans" column="from_village" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToVillage" class="beans.Village, beans" column="to_village" not-null="true" lazy="no-proxy"  fetch="select" />
+      <many-to-one name="FromPlayer" class="beans.Player, beans" column="from_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToPlayer" class="beans.Player, beans" column="to_player" not-null="true" lazy="no-proxy" fetch="select" />
+    </subclass>
+
+    <subclass discriminator-value="5" name="beans.OfferAcceptedReport, beans" lazy="true">
+      <property name="BoughtType" column="bought_type" type="beans.ResourcesType, beans" not-null="false" />
+      <property name="SoldType" column="sold_type" type="beans.ResourcesType, beans" not-null="false" />
+      <property name="BoughtQuantity" column="bought_quantity" type="Int32" />
+      <property name="SoldQuantity" column="sold_quantity" type="Int32" />
+      <many-to-one name="FromVillage" class="beans.Village, beans" column="from_village" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToVillage" class="beans.Village, beans" column="to_village" not-null="true" lazy="no-proxy"  fetch="select" />
+      <many-to-one name="FromPlayer" class="beans.Player, beans" column="from_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToPlayer" class="beans.Player, beans" column="to_player" not-null="true" lazy="no-proxy" fetch="select" />
+    </subclass>
+
+    <subclass discriminator-value="6" name="beans.SupportReport, beans" lazy="true">
+      <many-to-one name="FromVillage" class="beans.Village, beans" column="from_village" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToVillage" class="beans.Village, beans" column="to_village" not-null="true" lazy="no-proxy" fetch="select"  />
+      <many-to-one name="FromPlayer" class="beans.Player, beans" column="from_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="ToPlayer" class="beans.Player, beans" column="to_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <property name="Spear" column="spear_defense" type="Int32" />
+      <property name="Sword" column="sword_defense" type="Int32" />
+      <property name="Axe" column="axe_defense" type="Int32" />
+      <property name="Scout" column="scout_defense" type="Int32" />
+      <property name="LightCavalry" column="light_cavalry_defense" type="Int32" />
+      <property name="HeavyCavalry" column="heavy_cavalry_defense" type="Int32" />
+      <property name="Catapult" column="catapult_defense" type="Int32" />
+      <property name="Ram" column="ram_defense" type="Int32" />
+      <property name="Noble" column="noble_defense" type="Int32" />
+    </subclass>
+
+    <subclass discriminator-value="7" name="beans.SupportWithdawalReport, beans" lazy="true">
+      <many-to-one name="FromVillage" class="beans.Village, beans" column="from_village" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="OriginalVillage" class="beans.Village, beans" column="to_village" not-null="true" lazy="no-proxy" fetch="select"  />
+      <many-to-one name="FromPlayer" class="beans.Player, beans" column="from_player" not-null="true" lazy="no-proxy"  fetch="select"/>
+      <many-to-one name="OriginalPlayer" class="beans.Player, beans" column="to_player" not-null="true" lazy="no-proxy"  fetch="select"/>
+      <property name="Spear" column="spear_defense" type="Int32" />
+      <property name="Sword" column="sword_defense" type="Int32" />
+      <property name="Axe" column="axe_defense" type="Int32" />
+      <property name="Scout" column="scout_defense" type="Int32" />
+      <property name="LightCavalry" column="light_cavalry_defense" type="Int32" />
+      <property name="HeavyCavalry" column="heavy_cavalry_defense" type="Int32" />
+      <property name="Catapult" column="catapult_defense" type="Int32" />
+      <property name="Ram" column="ram_defense" type="Int32" />
+      <property name="Noble" column="noble_defense" type="Int32" />
+    </subclass>
+
+    <subclass discriminator-value="8" name="beans.SupportSendbackReport, beans" lazy="true">
+      <many-to-one name="FromVillage" class="beans.Village, beans" column="from_village" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="OriginalVillage" class="beans.Village, beans" column="to_village" not-null="true" lazy="no-proxy"  fetch="select" />
+      <many-to-one name="FromPlayer" class="beans.Player, beans" column="from_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="OriginalPlayer" class="beans.Player, beans" column="to_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <property name="Spear" column="spear_defense" type="Int32" />
+      <property name="Sword" column="sword_defense" type="Int32" />
+      <property name="Axe" column="axe_defense" type="Int32" />
+      <property name="Scout" column="scout_defense" type="Int32" />
+      <property name="LightCavalry" column="light_cavalry_defense" type="Int32" />
+      <property name="HeavyCavalry" column="heavy_cavalry_defense" type="Int32" />
+      <property name="Catapult" column="catapult_defense" type="Int32" />
+      <property name="Ram" column="ram_defense" type="Int32" />
+      <property name="Noble" column="noble_defense" type="Int32" />
+    </subclass>
+    
+    <subclass discriminator-value="9" name="beans.InviteReport, beans" lazy="true">
+      <many-to-one name="Inviter" class="beans.Player, beans" column="from_player" not-null="true" lazy="no-proxy" fetch="select" />
+      <many-to-one name="Group" class="beans.Group, beans" column="group_id" not-null="true" lazy="no-proxy" fetch="select" />
+    </subclass>
+    
+    
+    
+  </class>
+
+</hibernate-mapping>
